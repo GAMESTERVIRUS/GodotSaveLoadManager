@@ -1,0 +1,154 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmxu8entsrw6n"]
+
+[ext_resource type="Script" uid="uid://duar81o1wlnrb" path="res://demo.gd" id="1_5hfv0"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5hfv0")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveDir" type="LineEdit" parent="UI/GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -171.5
+offset_top = 100.0
+offset_right = 171.50012
+offset_bottom = 131.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "user://Saves"
+max_length = 255
+expand_to_text_length = true
+emoji_menu_enabled = false
+clear_button_enabled = true
+caret_blink = true
+
+[node name="SaveDirText" type="RichTextLabel" parent="UI/GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 0.2
+offset_left = 19.59999
+offset_top = 100.0
+offset_right = 155.59999
+offset_bottom = 128.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[b]Save Directory :[/b]"
+fit_content = true
+scroll_active = false
+
+[node name="Data" type="LineEdit" parent="UI/GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -124.0
+offset_right = -76.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Data Key"
+alignment = 1
+max_length = 128
+expand_to_text_length = true
+emoji_menu_enabled = false
+clear_button_enabled = true
+caret_blink = true
+
+[node name="Key" type="LineEdit" parent="UI/GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -124.0
+offset_right = 224.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "Data Value"
+alignment = 1
+max_length = 128
+expand_to_text_length = true
+emoji_menu_enabled = false
+clear_button_enabled = true
+caret_blink = true
+
+[node name="SaveBtn" type="Button" parent="UI/GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = -15.5
+offset_right = 46.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+text = "SAVE DATA"
+
+[node name="LoadBtn" type="Button" parent="UI/GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = 34.5
+offset_right = 49.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+keep_pressed_outside = true
+text = "LOAD DATA"
+
+[node name="LoadedDataOut" type="RichTextLabel" parent="UI/GUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -573.0
+offset_top = -240.0
+offset_right = 574.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 2
+bbcode_enabled = true
+text = "Loaded Data Will be Displayed Here..."
+selection_enabled = true
+
+[connection signal="text_submitted" from="UI/GUI/SaveDir" to="." method="_on_save_dir_text_submitted"]
+[connection signal="text_submitted" from="UI/GUI/Data" to="." method="_on_data_text_submitted"]
+[connection signal="text_submitted" from="UI/GUI/Key" to="." method="_on_key_text_submitted"]
+[connection signal="pressed" from="UI/GUI/SaveBtn" to="." method="_on_save_btn_pressed"]
+[connection signal="pressed" from="UI/GUI/LoadBtn" to="." method="_on_load_btn_pressed"]
